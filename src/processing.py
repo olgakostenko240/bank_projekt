@@ -7,16 +7,15 @@ list_dicts = [
 
 
 def filter_by_state(list_of_dicts: list[dict], state: str = "EXECUTED") -> list[dict]:
-    """Функция фильтрует словарь по переданонному значению"""
+    """Функция возвращает новый список словарей, у которых ключ соответствует указаному значению"""
     filter_dicts = [i for i in list_of_dicts if i.get("state") == state]
 
-    return sorted(filter_dicts, key=lambda x: x["state"])
+    return filter_dicts
 
 
 def sort_by_date(list_of_dicts: list[dict], sort: bool = True) -> list[dict]:
-    """Функция фильтрует словарь по дате"""
-    for i in list_of_dicts:
-        list_of_dicts.sort(key=lambda x: x["date"], reverse=sort)
+    """Функция возвращает новый список, отсортированный по дате"""
+    list_of_dicts.sort(key=lambda x: x["date"], reverse=sort)
 
     return list_of_dicts
 
