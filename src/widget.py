@@ -18,4 +18,4 @@ def mask_account_card(number: str) -> str | None:
 def get_data(format_data: str) -> str:
     """Функция принимает на вход один формат даты, а выводит в формате dd.mm.gggg"""
     new_format_data = format_data[0:10].split("-")
-    return ".".join(new_format_data)
+    return ".".join(new_format_data[::-1])

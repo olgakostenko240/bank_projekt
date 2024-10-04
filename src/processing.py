@@ -22,3 +22,4 @@ def sort_by_date(list_of_dicts: list[dict], sort: bool = True) -> list[dict]:
 
 result_filter_by_state = filter_by_state(list_dicts)
 result_sort_by_date = sort_by_date(list_dicts)
+#не изменялся
