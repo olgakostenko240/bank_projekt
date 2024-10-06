@@ -24,3 +24,4 @@ def test_transaction_descriptions(transaction: list[dict[str, str | dict[str, An
 @pytest.mark.parametrize("start, stop, expected", [(1, 1, "0000 0000 0000 0001")])
 def test_card_number_generator(start: int, stop: int, expected: str) -> None:
     assert next(card_number_generator(start, stop)) == expected
+
