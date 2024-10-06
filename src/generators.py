@@ -33,3 +33,4 @@ def card_number_generator(start: Any, stop: Any) -> Generator[str, Any, None]:
 
 for numbers in card_number_generator(1, 5):
     print(numbers)
+
