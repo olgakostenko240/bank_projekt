@@ -20,3 +20,4 @@ def test_file_not_found(mock_file: Any) -> None:
 def test_empty_file(mock_file: Any) -> None:
     transactions = get_operations_data("data/operations.json")
     assert transactions == []
+
