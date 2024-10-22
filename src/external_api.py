@@ -3,15 +3,17 @@ import os
 import requests
 from dotenv import load_dotenv
 
-from src.utils import get_operations_data
 
 load_dotenv()
 
 
-def get_transaction_amount(transactions: dict) -> float:
+def get_transaction_amount(transactions: dict) -> list[str] | float:
     """Функция которая принимает на вход транзакцию и возвращает сумму транзакций"""
-    amount = float(transactions["amount"])
-    currency = transactions["currency"]
+    amount = transactions["operationAmount"]["amount"]
+    currency = transactions["operationAmount"]["currency"]["code"]
+
+    if ["operationAmount"] == currency:
+        return ["operationAmount"]
 
     if currency == "RUB":
         return amount
@@ -34,4 +36,16 @@ def get_transaction_amount(transactions: dict) -> float:
 
 
 if __name__ == "__main__":
-    data_transactions = get_operations_data(get_operations_data(file_path="../data/operations.json"))
+
+    result = get_transaction_amount(
+        {
+            "id": 441945886,
+            "state": "EXECUTED",
+            "date": "2019-08-26T10:50:58.294041",
+            "operationAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}},
+            "description": "Перевод организации",
+            "from": "Maestro 1596837868705199",
+            "to": "Счет 64686473678894779589",
+        }
+    )
+    # print(result)
