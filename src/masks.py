@@ -1,8 +1,13 @@
 import logging
+import os
+
+current_logs = os.path.dirname(os.path.abspath(__file__))
+rel_logs_file_path = os.path.join(current_logs, "../logs/masks.log")
+logs_file_path = os.path.abspath(rel_logs_file_path)
 
 logger = logging.getLogger("masks")
 logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler("../logs/masks.log", encoding="UTF-8")
+file_handler = logging.FileHandler(logs_file_path, encoding="UTF-8")
 file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
@@ -29,5 +34,5 @@ def get_mask_account(acc_number: str) -> str | None:
 
 
 if __name__ == "__main__":
-    get_mask_card_number(str(123466776543497))
-    get_mask_account(str(1234667765434908469))
+    print(get_mask_card_number(str(1234667765434972)))
+    print(get_mask_account(str(12346677654349084693)))

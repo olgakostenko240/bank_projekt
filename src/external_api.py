@@ -3,7 +3,6 @@ import os
 import requests
 from dotenv import load_dotenv
 
-
 load_dotenv()
 
 
@@ -48,4 +47,4 @@ if __name__ == "__main__":
             "to": "Счет 64686473678894779589",
         }
     )
-    # print(result)
+    print(result)

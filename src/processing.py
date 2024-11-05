@@ -6,7 +6,7 @@ list_dicts = [
 ]
 
 
-def filter_by_state(list_of_dicts: list[dict], state: str = "EXECUTED") -> list[dict]:
+def filter_by_state(list_of_dicts: list[dict], state: str) -> list[dict]:
     """Функция возвращает новый список словарей, у которых ключ соответствует указаному значению"""
     filter_dicts = [i for i in list_of_dicts if i.get("state") == state]
 
@@ -20,6 +20,10 @@ def sort_by_date(list_of_dicts: list[dict], sort: bool = True) -> list[dict]:
     return list_of_dicts
 
 
-result_filter_by_state = filter_by_state(list_dicts)
+result_filter_by_state = filter_by_state(list_dicts, "EXECUTED")
 result_sort_by_date = sort_by_date(list_dicts)
 #не изменялся
+
+if __name__ == "__main__":
+    print(result_filter_by_state)
+    print(result_sort_by_date)

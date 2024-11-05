@@ -1,8 +1,9 @@
 from src.processing import filter_by_state, sort_by_date
 
 
-def test_filter_by_state(list_of_dicts: list[dict]) -> None:
-    assert filter_by_state(list_of_dicts) == [
+def test_filter_by_state(list_of_dicts: list[dict]):
+    result = filter_by_state(list_of_dicts, "EXECUTED")
+    assert result == [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
     ]

@@ -3,9 +3,13 @@ import logging
 import os
 from typing import Any
 
+current_log = os.path.dirname(os.path.abspath(__file__))
+rel_log_file_path = os.path.join(current_log, "../logs/utils.log")
+log_file_path = os.path.abspath(rel_log_file_path)
+
 logger = logging.getLogger("utils")
 logger.setLevel(logging.DEBUG)
-file_handler = logging.FileHandler("../logs/utils.log", encoding="UTF-8")
+file_handler = logging.FileHandler(log_file_path, encoding="UTF-8")
 file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
